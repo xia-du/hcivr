@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>The Henry Clay Inn in VR</title>
+    <meta name="description" content="360&deg; Image Gallery - A-Frame">
+    <script src="https://rawgit.com/aframevr/aframe/917c06889ee1f3f79b7b1bbd9eab9815f9512503/dist/aframe.min.js"></script>
+    <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-template-component@3.0.1"></script>
+    <script src="components/set-image.js"></script>
+    <script src="components/update-raycaster.js"></script>
+
+  </head>
+  <body>
+    <a-scene inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
+      <a-assets>
+        <!-- videos -->
+        <!-- <video id="intro" src="assets/intro.mp4" autoplay="false" width="280" height="140" webkit-playsinline></video>
+        <video id="train" src="assets/train.mp4" loop ></video> -->
+
+        <!-- images -->
+        <img crossorigin ="anonymous" id="start" src="./assets/1.jpg">
+        <img crossorigin ="anonymous" id="train" src="./assets/train.jpg">
+        <img crossorigin ="anonymous" id="hci" src="./assets/2.jpg">
+        <img crossorigin ="anonymous" id="lobby" src="./assets/lobby.jpg">
+        <img crossorigin ="anonymous" id="rest" src="./assets/rest.jpg">
+        <img crossorigin ="anonymous" id="secondFloor" src="./assets/secLobby.jpg">
+        <img crossorigin ="anonymous" id="exit" src="./assets/secLobby.jpg">
+        <img crossorigin ="anonymous" id="secondFloor2" src="./assets/secLobby.jpg">
+        <!-- <img crossorigin ="anonymous" id="corridor" src="./assets/corridor.jpg"> -->
+        <img crossorigin ="anonymous" id="rooftop" src="./assets/roof.jpg">
+        <img crossorigin ="anonymous" id="balcony" src="./assets/balcony.jpg">
+        <img crossorigin ="anonymous" id="room1" src="./assets/room1.jpg">
+        <img crossorigin ="anonymous" id="room2" src="./assets/room2.jpg">
+        <img crossorigin ="anonymous" id="room3" src="./assets/room3.jpg">
+        <img crossorigin ="anonymous" id="room4" src="./assets/room4.jpg">
+        <img crossorigin ="anonymous" id="suite" src="./assets/suite.jpg">
+        <img crossorigin ="anonymous" id="suite1" src="./assets/suite2.jpg">
+
+        <!-- thumbnails -->
+        <img crossorigin ="anonymous" id="start-thumb" src="./assets/thumbs/start.png">
+        <img crossorigin ="anonymous" id="hci-thumb" src="./assets/thumbs/hci.png">
+        <img crossorigin ="anonymous" id="hci-thumb2" src="./assets/thumbs/hci.png">
+        <img crossorigin ="anonymous" id="lobby-thumb" src="./assets/thumbs/lobby.png">
+        <img crossorigin ="anonymous" id="lobby-thumb2" src="./assets/thumbs/lobby.png">
+        <img crossorigin ="anonymous" id="train-thumb" src="./assets/thumbs/train.png">
+        <img crossorigin ="anonymous" id="rest-thumb" src="./assets/thumbs/rest.png">
+        <img crossorigin ="anonymous" id="secondFloor-thumb" src="./assets/thumbs/secondFloor.png">
+        <img crossorigin ="anonymous" id="rooftop-thumb" src="./assets/thumbs/rooftop.png">
+        <!-- <img crossorigin ="anonymous" id="corridor-thumb" src="./assets/thumbs/cor.png"> -->
+        <img crossorigin ="anonymous" id="balcony-thumb" src="./assets/thumbs/bal.png">
+        <img crossorigin ="anonymous" id="room1-thumb" src="./assets/thumbs/room1.png">
+        <img crossorigin ="anonymous" id="room2-thumb" src="./assets/thumbs/room2.png">
+        <img crossorigin ="anonymous" id="room3-thumb" src="./assets/thumbs/room3.png">
+        <img crossorigin ="anonymous" id="room4-thumb" src="./assets/thumbs/room4.png">
+        <img crossorigin ="anonymous" id="suite-thumb" src="./assets/thumbs/suite.png">
+        <img crossorigin ="anonymous" id="suite1-thumb" src="./assets/thumbs/suite1.png">
+        <img crossorigin ="anonymous" id="suite2-thumb" src="./assets/thumbs/suite2.png">
+        <img crossorigin ="anonymous" id="exit-thumb" src="./assets/thumbs/exit.png">
+
+        <!-- sound -->
+        <audio id="click-sound" crossorigin ="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+
+        <!-- Image link template to be reused. -->
+        <script id="link" type="text/nunjucks">
+          <a-plane class="link" height="1" width="1"
+            material="shader: flat; src: {{ thumb }}"
+            event-set__1="_event: mousedown; scale: 1 1 1"
+            event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+            event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+            event-set__4="_event: mouseleave; scale: 1 1 1"
+            set-image="on: click; target: #image-360; src: {{ src }}"
+            sound="on: click; src: #click-sound"
+            update-raycaster="#cursor"></a-plane>
+        </script>
+      </a-assets>
+
+      <!-- intro -->
+
+      <!-- <a-video src="#intro" width="16" height="9" position="0 0 -6"></a-video> -->
+
+      <!-- 360-degree image. -->
+      <!-- <a-sky  visible="false" id="image-360" radius="10" color="#000000" src="#start"></a-sky> -->
+      <a-sky id="image-360" radius="10" src="#start"></a-sky>
+
+      <!-- Image links. -->
+      <a-entity id="links" position="0 0 -4">
+        <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#hci" data-thumb="#start-thumb" position="0 0 0" rotation="0 0 0"></a-entity>
+
+        <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#hci" data-thumb="#hci-thumb" position="2 0 0" rotation="0 -30 0"></a-entity>
+        <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#hci" data-thumb="#hci-thumb2" position="2 0 8" rotation="0 200 0"></a-entity>
+        <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#train" data-thumb="#train-thumb" position="-4 0 3" rotation="0 80 0" onclick="document.getElementById('train').play()" ></a-entity>
+
+        <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#start" data-thumb="#start-thumb" position="1 0 8" rotation="0 180 0"></a-entity>
+
+        <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#lobby" data-thumb="#lobby-thumb"  position="4 0 4" rotation="0 -90 0"></a-entity>
+
+        <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#lobby" data-thumb="#lobby-thumb2"  position="-4 -1.5 3.5" rotation="0 90 0"></a-entity>
+
+        <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#rest" data-thumb="#rest-thumb"></a-entity>
+        <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#secondFloor" data-thumb="#secondFloor-thumb" position="4 0 6" rotation="0 -120 0"></a-entity>
+
+        <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#balcony" data-thumb="#balcony-thumb" position="0 0 -2.5" rotation="0 0 0"></a-entity>
+        <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#rooftop" data-thumb="#rooftop-thumb" position="-2 0 -2" rotation="0 40 0"></a-entity>
+
+        <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#room1" data-thumb="#room1-thumb" position="5.2 0 5.2" rotation="0 -120 0"></a-entity>
+        <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#room3" data-thumb="#room2-thumb" position="3 0 6" rotation="0 -120 0"></a-entity>
+        <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#room2" data-thumb="#room3-thumb" position="-9 0 3" rotation="0 90 0"></a-entity>
+        <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#room4" data-thumb="#room4-thumb" position="-7 0 5" rotation="0 90 0"></a-entity>
+
+        <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#suite" data-thumb="#suite-thumb" position="7 0 4" rotation="0 -100 0"></a-entity>
+
+        <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#secondFloor2" data-thumb="#secondFloor-thumb" position="0 0 0" rotation="0 0 0"></a-entity>
+
+        <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#suite1" data-thumb="#suite2-thumb" position="0 0 0" rotation="0 0 0"></a-entity>
+
+        <!-- <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#suite" data-thumb="#suite1-thumb" position="0 0 0" rotation="0 0 0"></a-entity> -->
+
+        <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#exit" data-thumb="#exit-thumb" position="1 0 8" rotation="0 180 0"></a-entity>
+
+
+      </a-entity>
+
+      <!-- Camera + cursor. -->
+      <a-entity camera look-controls>
+        <a-cursor id="cursor"
+          animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+          animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+          event-set__1="_event: mouseenter; color: springgreen"
+          event-set__2="_event: mouseleave; color: black"
+          raycaster="objects: .link"></a-cursor>
+      </a-entity>
+    </a-scene>
+  </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+  <script src="components/main.js" charset="utf-8"></script>
+</html>
