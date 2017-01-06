@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>The Henry Clay Inn in VR</title>
-    <meta name="description" content="360&deg; Image Gallery - A-Frame">
+    <meta name="description" content="HCI VR Tour">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/0.3.2/aframe.min.js"></script>
     <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
     <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
@@ -12,15 +12,10 @@
     <script src="https://npmcdn.com/aframe-template-component@3.0.1"></script>
     <script src="components/set-image.js"></script>
     <script src="components/update-raycaster.js"></script>
-
   </head>
   <body>
-    <a-scene inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
+    <a-scene>
       <a-assets>
-        <!-- videos -->
-        <!-- <video id="intro" src="assets/intro.mp4" autoplay="false" width="280" height="140" webkit-playsinline></video>
-        <video id="train" src="assets/train.mp4" loop ></video> -->
-
         <!-- images -->
         <img crossorigin ="anonymous" id="start" src="assets/1.jpg">
         <img crossorigin ="anonymous" id="train" src="assets/train.jpg">
@@ -30,7 +25,6 @@
         <img crossorigin ="anonymous" id="secondFloor" src="assets/secLobby.jpg">
         <img crossorigin ="anonymous" id="exit" src="assets/secLobby.jpg">
         <img crossorigin ="anonymous" id="secondFloor2" src="assets/secLobby.jpg">
-        <!-- <img crossorigin ="anonymous" id="corridor" src="assets/corridor.jpg"> -->
         <img crossorigin ="anonymous" id="rooftop" src="assets/roof.jpg">
         <img crossorigin ="anonymous" id="balcony" src="assets/balcony.jpg">
         <img crossorigin ="anonymous" id="room1" src="assets/room1.jpg">
@@ -91,7 +85,7 @@
 
         <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#hci" data-thumb="#hci-thumb" position="2 0 0" rotation="0 -30 0"></a-entity>
         <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#hci" data-thumb="#hci-thumb2" position="2 0 8" rotation="0 200 0"></a-entity>
-        <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#train" data-thumb="#train-thumb" position="-4 0 3" rotation="0 80 0" onclick="document.getElementById('train').play()" ></a-entity>
+        <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#train" data-thumb="#train-thumb" position="-4 0 3" rotation="0 80 0"></a-entity>
 
         <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#start" data-thumb="#start-thumb" position="1 0 8" rotation="0 180 0"></a-entity>
 
@@ -115,8 +109,6 @@
         <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#secondFloor2" data-thumb="#secondFloor-thumb" position="0 0 0" rotation="0 0 0"></a-entity>
 
         <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#suite1" data-thumb="#suite2-thumb" position="0 0 0" rotation="0 0 0"></a-entity>
-
-        <!-- <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#suite" data-thumb="#suite1-thumb" position="0 0 0" rotation="0 0 0"></a-entity> -->
 
         <a-entity visible="false" class="thumbnail" template="src: #link" data-src="#exit" data-thumb="#exit-thumb" position="1 0 8" rotation="0 180 0"></a-entity>
 

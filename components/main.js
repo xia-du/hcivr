@@ -51,21 +51,6 @@ $(document).ready(function() {
 	// initialize
 	show([$hci, $train]);
 
-//   document.addEventListener('touchstart', function(e) {
-//     e.preventDefault();
-//     document.getElementById('intro').play();
-//
-// }, false);
-
-	// document.getElementById('intro').addEventListener('ended', myHandler, false);
-  //
-	// function myHandler(e) {
-  //   $('a-video[src="#intro"]').remove();
-  //   $('#links').attr('visible', 'true');
-  //   $('a-sky').attr('color', '');
-  //   $('a-entity[camera]').attr('visible', 'true');
-	// }
-
 	$start.click(function(e) {
 		setScene([$hci, $train]);
 	});
